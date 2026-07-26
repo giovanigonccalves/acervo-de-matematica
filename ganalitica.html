@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Geometria Analítica</title>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1d2021; /* Fundo escuro limpo Gruvbox */
+            color: #ebdbb2; /* Texto principal creme */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Botão de voltar estilo pílula */
+        .btn-voltar {
+            display: inline-block;
+            background-color: #282828;
+            color: #a89984;
+            padding: 10px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-voltar:hover {
+            background-color: #32302f;
+            color: #fabd2f;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ebdbb2;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #fabd2f; /* Destaque amarelo quente Gruvbox */
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Card de conteúdo estilo Bento */
+        .card-conteudo {
+            background-color: #282828;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 35px;
+        }
+
+        ul {
+            list-style-position: inside;
+            line-height: 1.8;
+        }
+
+        /* Seção dos livros e referências */
+        .livros-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .livro-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ebdbb2;
+            transition: transform 0.2s ease;
+        }
+
+        .livro-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .livro-item img {
+            width: 140px;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .livro-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #fabd2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Volta para a página principal -->
+        <a href="index.html" class="btn-voltar">← Voltar para todos os assuntos</a>
+
+        <h1>Geometria Analítica</h1>
+
+        <div class="card-conteudo">
+            <h2>Conteúdos Abordados:</h2>
+            <ul>
+                <li>Vetores no Plano e no Espaço ($\mathbb{R}^2$ e $\mathbb{R}^3$)</li>
+                <li>Produto Escalar, Vetorial e Misto</li>
+                <li>Estudo da Reta e do Plano (Equações e Posições Relativas)</li>
+                <li>Distâncias e Ângulos</li>
+                <li>Cônicas (Elipse, Hipérbole e Parábola) e Quádricas (Paraboloides, Hiperboloides, Cone e Elipsoide)</li>
+            </ul>
+        </div>
+
+        <h2>Livros e Referências</h2>
+        <div class="livros-grid">
+            <!-- Altere o href para o link e o src para a imagem da capa -->
+            <a href="https://annas-archive.gl/md5/9c486358cfe9dfbf552ec06b821f05bd" target="_blank" class="livro-item">
+                <img src="https://m.media-amazon.com/images/I/61hrwyeaZ8L.jpg" alt="Geometria Analítica - Steinbruch & Winterle">
+                <span>Geometria Analítica - Steinbruch</span>
+            </a>
+            <a href="https://annas-archive.gl/md5/a545701782130b67eacceb843afbaeef" target="_blank" class="livro-item">
+                <img src="https://a-static.mlcdn.com.br/%7Bw%7Dx%7Bh%7D/livro-vetores-e-geometria-analitica/grupoa/42812/608390d14df211127e78dd6dd88db933.jpg" alt="Vetores e Geometria Analítica - Paulo Winterle">
+                <span>Vetores e Geometria Analítica - Winterle</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo I</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #1d2021; /* Fundo escuro limpo Gruvbox */
+        color: #ebdbb2; /* Texto principal creme */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        padding: 50px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 800px;
+    }
+
+    /* Botão de voltar estilo pílula moderna */
+    .btn-voltar {
+        display: inline-block;
+        background-color: #282828;
+        color: #a89984;
+        padding: 10px 18px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 30px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-voltar:hover {
+        background-color: #32302f;
+        color: #fabd2f;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #ebdbb2;
+        margin-bottom: 25px;
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        color: #fabd2f; /* Destaque amarelo quente Gruvbox */
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    /* Card de conteúdo estilo Bento (cantos arredondados e limpo) */
+    .card-conteudo {
+        background-color: #282828;
+        border-radius: 22px;
+        padding: 30px;
+        margin-bottom: 35px;
+    }
+
+    ul {
+        list-style-position: inside;
+        line-height: 1.8;
+    }
+
+    /* Seção dos livros */
+    .livros-grid {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+
+    .livro-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #ebdbb2;
+        transition: transform 0.2s ease;
+    }
+
+    .livro-item:hover {
+        transform: translateY(-4px);
+    }
+
+    .livro-item img {
+        width: 140px;
+        height: 195px;
+        object-fit: cover;
+        border-radius: 14px; /* Cantos arredondados na capa do livro */
+        margin-bottom: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .livro-item span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #fabd2f;
+    }
+</style>
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Volta para a página principal -->
+        <a href="index.html" class="btn-voltar">← Voltar para todos os assuntos</a>
+
+        <h1>Cálculo I</h1>
+
+        <div class="card-conteudo">
+            <h2>Conteúdos Abordados:</h2>
+            <ul>
+                <li>Limites</li>
+                <li>Continuidade</li>
+                <li>Assíntotas</li>
+                <li>Derivadas</li>
+                <li>Aplicação de derivadas, problemas de otimização</li>
+                <li>Integrais Definidas e Indefinidas</li>
+            </ul>
+        </div>
+
+        <h2>Livros e Referências</h2>
+<div class="livros-grid">
+
+    <!-- Livro 1 -->
+    <a href="https://annas-archive.gl/md5/24a6a5f04981e143c1925474d0983191" target="_blank" class="livro-item">
+        <img src="https://image.isu.pub/130611114738-5bff8861dbf3edccc0714dfb8403330d/jpg/page_1_social_preview.jpg" alt="Cálculo Volume 1 - James Stewart">
+        <span>Cálculo 1 - James Stewart</span>
+    </a>
+
+    <!-- Livro 2 -->
+    <a href="https://annas-archive.gl/md5/2398e32bbdf1b6f2c01a2bdebade3b4d" target="_blank" class="livro-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaCKB-ectklNp_dw_D6jLHG-R6UnwSTr3xA-PhtgGcqg&s" alt="Cálculo 1 - Guidorizzi">
+        <span>Um Curso de Cálculo vol. 1 - Guidorizzi</span>
+    </a>
+
+    <!-- Livro 3 -->
+    <a href="https://annas-archive.gl/md5/ec1e2ae0a4cdb708d8b7d6e51499c69a" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/userbooks/dee0dec5c9d23b3100266269311f6077974793b2b2e9bd576cf41b2b97f05372.jpg" alt="Cálculo com funções de uma variável - Apostol">
+        <span>Cálculo - Apostol</span>
+    </a>
+
+</div>
+<!-- Bloco do Guia de Download -->
+<div class="guia-download">
+    <details>
+        <summary>💡 Como baixar os livros pelo Anna's Archive?</summary>
+        <div class="guia-conteudo">
+            <ol>
+                <li>Clique no livro desejado para ser redirecionado à página da obra.</li>
+                <li>Na seção <strong>"Option #1: Slow Partner Server"</strong> (Servidores Lentos de Parceiros), escolha qualquer um dos links (ex: <em>Option #1</em> ou <em>Option #2</em>).</li>
+                <li>Na nova janela, clique no botão <strong>"GET"</strong> ou <strong>"Download"</strong> que aparecer no topo da página.</li>
+                <li>Aguarde alguns segundos e o arquivo PDF/EPUB será baixado automaticamente.</li>
+            </ol>
+            <p class="dica-seguranca">📌 <em>Dica: Não é necessário criar conta ou pagar nada. Dê preferência aos servidores "Slow Downloads" (parceiros gratuitos).</em></p>
+        </div>
+    </details>
+</div>
+
+</body>
+</html>

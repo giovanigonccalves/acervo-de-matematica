@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Matemática</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1d2021;
+            color: #ebdbb2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 0 20px 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar superior */
+        header {
+            width: 100%;
+            max-width: 1000px;
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #3c3836;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fabd2f;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            color: #a89984;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 20px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ebdbb2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* Seção Hero */
+        .hero {
+            margin-bottom: 45px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #3c3836;
+            color: #fabd2f;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ebdbb2;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            color: #a89984;
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Grade Bento Grid espaçosa */
+        .grid-disciplinas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
+        }
+
+        /* Estilo do Card Completo */
+        .card-disciplina {
+            background-color: #282828;
+            border: 1px solid #3c3836;
+            border-radius: 20px;
+            padding: 28px;
+            text-decoration: none;
+            color: #ebdbb2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+            transition: all 0.25s ease;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .icone-materia {
+            font-size: 1.8rem;
+        }
+
+        .tag-materia {
+            font-size: 0.75rem;
+            background: #32302f;
+            color: #a89984;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .card-body .titulo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fabd2f;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-body .descricao {
+            font-size: 0.88rem;
+            color: #a89984;
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .seta {
+            width: 36px;
+            height: 36px;
+            background-color: #3c3836;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ebdbb2;
+            transition: all 0.2s ease;
+        }
+
+        /* Efeitos ao passar o mouse */
+        .card-disciplina:hover {
+            transform: translateY(-5px);
+            background-color: #32302f;
+            border-color: #504945;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-disciplina:hover .seta {
+            background-color: #fabd2f;
+            color: #1d2021;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">∑ MATEMÁTICA</div>
+        <nav class="nav-links">
+            <a href="index.html">Disciplinas</a>
+            <a href="#">Referências</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+           <span class="badge">✦ Portal de Estudos</span>
+    <h1>Acervo Digital de Matemática</h1>
+    <p class="subtitulo">
+        Este espaço reúne notas de aula, roteiros de tópicos e referências bibliográficas organizadas para apoiar os estudos das disciplinas do curso.
+    </p>
+
+    <!-- Destaques/Recursos em pílulas -->
+     <div class="feature-item">
+            <span class="feature-icon">📝</span>
+            <span>Ementas & Conteúdos</span>
+        </div>
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="feature-icon">📚</span>
+            <span>Referências & Livros</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">💡</span>
+            <span>Guia de Acesso aos materiais</span>
+        </div>
+    </div>
+        </section>
+
+        <div class="grid-disciplinas">
+            <!-- Card 1 -->
+            <a href="calculo1.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">∫</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Cálculo I</span>
+                        <p class="descricao">Limites, derivadas e integrais.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="ganalitica.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">📐</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Geometria Analítica</span>
+                        <p class="descricao">Vetores, retas, planos e cônicas.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="algebra.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">∀</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Introdução à Álgebra</span>
+                        <p class="descricao">Lógica, conjuntos e relações</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
