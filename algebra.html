@@ -4,110 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introdução à Álgebra</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES (CATPPUCCIN LATTE - LIGHT MODE)
+   ========================================================================== */
+:root {
+    /* Superfícies */
+    --bg-pagina: #eff1f5;          /* Base: creme suave */
+    --bg-card: #e6e9ef;            /* Mantle: fundo dos cards */
+    --bg-card-hover: #ffffff;      /* Destaque ao passar o mouse */
+    --bg-btn: #e6e9ef;             /* Botão voltar */
+    
+    /* Bordas e Sombras */
+    --borda-suave: transparent;    /* Borda invisível para tirar o contorno rígido */
+    --borda-hover: #1e66f5;        /* Azul vibrante no hover */
+    --sombra-suave: rgba(0, 0, 0, 0.04);
+    --sombra-hover: rgba(30, 102, 245, 0.08);
 
-        body {
-            background-color: #1d2021; /* Fundo escuro limpo Gruvbox */
-            color: #ebdbb2; /* Texto principal creme */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 50px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* Tipografia */
+    --texto-titulo: #4c4f69;       /* Grafite suave e marcante */
+    --texto-corpo: #5c5f77;        /* Texto de leitura */
+    --texto-suave: #6c6f85;        /* Subtextos */
 
-        .container {
-            width: 100%;
-            max-width: 800px;
-        }
+    /* Destaques e Links */
+    --marca-azul: #1e66f5;         /* Azul Catppuccin */
+}
 
-        /* Botão de voltar estilo pílula */
-        .btn-voltar {
-            display: inline-block;
-            background-color: #282828;
-            color: #a89984;
-            padding: 10px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 30px;
-            transition: all 0.2s ease;
-        }
+/* ==========================================================================
+   2. REGRAS DE ESTRUTURA E ESTILO
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .btn-voltar:hover {
-            background-color: #32302f;
-            color: #fabd2f;
-        }
+body {
+    background-color: var(--bg-pagina);
+    color: var(--texto-titulo);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #ebdbb2;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
-        }
+.container {
+    width: 100%;
+    max-width: 800px;
+}
 
-        h2 {
-            color: #fabd2f; /* Destaque amarelo quente Gruvbox */
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
+/* Botão de voltar estilo pílula */
+.btn-voltar {
+    display: inline-block;
+    background-color: var(--bg-btn);
+    color: var(--texto-suave);
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border: 1px solid var(--borda-suave);
+    box-shadow: 0 2px 6px var(--sombra-suave);
+    transition: all 0.2s ease;
+}
 
-        /* Card de conteúdo estilo Bento */
-        .card-conteudo {
-            background-color: #282828;
-            border-radius: 22px;
-            padding: 30px;
-            margin-bottom: 35px;
-        }
+.btn-voltar:hover {
+    background-color: var(--bg-card-hover);
+    color: var(--marca-azul);
+    border-color: var(--borda-hover);
+    transform: translateX(-3px);
+}
 
-        ul {
-            list-style-position: inside;
-            line-height: 1.8;
-        }
+h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--texto-titulo);
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
 
-        /* Seção dos livros e referências */
-        .livros-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
+h2 {
+    color: var(--marca-azul); /* Destaque em azul Catppuccin */
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
 
-        .livro-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #ebdbb2;
-            transition: transform 0.2s ease;
-        }
+/* Card de conteúdo estilo Bento (sem bordas rígidas) */
+.card-conteudo {
+    background-color: var(--bg-card);
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 35px;
+    border: 1px solid var(--borda-suave);
+    box-shadow: 0 4px 12px var(--sombra-suave);
+}
 
-        .livro-item:hover {
-            transform: translateY(-4px);
-        }
+ul {
+    list-style-position: inside;
+    line-height: 1.8;
+    color: var(--texto-corpo);
+}
 
-        .livro-item img {
-            width: 140px;
-            height: 195px;
-            object-fit: cover;
-            border-radius: 14px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+/* Seção dos livros e referências */
+.livros-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
 
-        .livro-item span {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #fabd2f;
-        }
-    </style>
+.livro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--texto-titulo);
+    transition: transform 0.2s ease;
+}
+
+.livro-item:hover {
+    transform: translateY(-4px);
+}
+
+.livro-item img {
+    width: 140px;
+    height: 195px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 14px var(--sombra-suave);
+    border: 1px solid var(--borda-suave);
+    transition: box-shadow 0.2s ease;
+}
+
+.livro-item:hover img {
+    box-shadow: 0 8px 18px var(--sombra-hover);
+}
+
+.livro-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--marca-azul);
+    text-align: center;
+}
+</style>
 </head>
 <body>
 
@@ -135,11 +178,25 @@
                 <span>Álgebra Moderna - Iezzi</span>
             </a>
             <a href="#" target="_blank" class="livro-item">
-                <img src="algebra2.jpg" alt="Elementos da Teoria dos Conjuntos">
-                <span>Teoria dos Conjuntos</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR98rYffzQj8z_61lbJhLZSB2x0MpFD2zihauOAhPa4rQ2OYRLtEBhTl0Y&s=10" alt="Elementos da Teoria dos Conjuntos">
+                <span>Curso de Álgebra vol. 1 - Hefez</span>
             </a>
         </div>
     </div>
-
+<!-- Bloco do Guia de Download -->
+<div class="guia-download">
+    <details>
+        <summary>💡 Como baixar os livros pelo Anna's Archive?</summary>
+        <div class="guia-conteudo">
+            <ol>
+                <li>Clique no livro desejado para ser redirecionado à página da obra.</li>
+                <li>Na seção <strong>"Option #1: Slow Partner Server"</strong> (Servidores Lentos de Parceiros), escolha qualquer um dos links (ex: <em>Option #1</em> ou <em>Option #2</em>).</li>
+                <li>Na nova janela, clique no botão <strong>"GET"</strong> ou <strong>"Download"</strong> que aparecer no topo da página.</li>
+                <li>Aguarde alguns segundos e o arquivo PDF/EPUB será baixado automaticamente.</li>
+            </ol>
+            <p class="dica-seguranca">📌 <em>Dica: Não é necessário criar conta ou pagar nada. Dê preferência aos servidores "Slow Downloads" (parceiros gratuitos).</em></p>
+        </div>
+    </details>
+</div>
 </body>
 </html>

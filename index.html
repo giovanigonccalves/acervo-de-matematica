@@ -5,176 +5,455 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Matemática</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES (TEMA CLARO & MODERNO)
+   ========================================================================== */
+:root {
 
-        body {
-            background-color: #1d2021;
-            color: #ebdbb2;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 0 20px 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* Superfícies (Base, Mantle, Crust) */
+    --bg-pagina: #eff1f5;          /* Base: Fundo geral em tom creme suave */
+    --bg-card: #e6e9ef;            /* Mantle: Fundo dos cards/banners */
+    --bg-card-hover: #ffffff;      /* Crust/White: Destaque ao passar o mouse */
+    --bg-destaque-suave: #e6e9ef;  /* Surface0: Tags e badges */
+    --bg-sombra: rgba(30, 102, 245, 0.08);
 
-        /* Navbar superior */
-        header {
-            width: 100%;
-            max-width: 1000px;
-            padding: 25px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #3c3836;
-            margin-bottom: 40px;
-        }
+    /* Bordas (Surface1 & Surface2) */
+    --borda-suave: transparent; /* Remove a linha rígida da borda */
+    --borda-hover: #1e66f5;        /* Blue: Borda azul vibrante no hover */
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fabd2f;
-            letter-spacing: -0.5px;
-        }
+    /* Tipografia (Text, Subtext1, Subtext0) */
+    --texto-titulo: #4c4f69;       /* Text: Tom grafite profundo macio */
+    --texto-corpo: #5c5f77;        /* Subtext1: Texto de leitura */
+    --texto-suave: #6c6f85;        /* Subtext0: Legendas e detalhes */
 
-        .nav-links a {
-            color: #a89984;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-left: 20px;
-            transition: color 0.2s;
-        }
+    /* Acentos de Cor */
+    --marca-azul: #1e66f5;         /* Blue Catppuccin */
+    --verde-tag: #40a02b;          /* Green Catppuccin */
+}
 
-        .nav-links a:hover {
-            color: #ebdbb2;
-        }
+/* ==========================================================================
+   2. REGRAS GERAIS E LAYOUT
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .container {
-            width: 100%;
-            max-width: 1000px;
-        }
+body {
+    background-color: var(--bg-pagina);
+    color: var(--texto-titulo);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 0 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        /* Seção Hero */
-        .hero {
-            margin-bottom: 45px;
-        }
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
 
-        .badge {
-            display: inline-block;
-            background-color: #3c3836;
-            color: #fabd2f;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
+/* Navbar superior */
+header {
+    width: 100%;
+    max-width: 1000px;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--borda-suave);
+    margin-bottom: 40px;
+}
 
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #ebdbb2;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-        }
+.logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--texto-titulo);
+    letter-spacing: -0.5px;
+}
 
-        .subtitulo {
-            color: #a89984;
-            font-size: 1.1rem;
-            max-width: 600px;
-            line-height: 1.5;
-        }
+.nav-links a {
+    color: var(--texto-suave);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
 
-        /* Grade Bento Grid espaçosa */
-        .grid-disciplinas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 24px;
-        }
+.nav-links a:hover {
+    color: var(--marca-azul);
+}
 
-        /* Estilo do Card Completo */
-        .card-disciplina {
-            background-color: #282828;
-            border: 1px solid #3c3836;
-            border-radius: 20px;
-            padding: 28px;
-            text-decoration: none;
-            color: #ebdbb2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 200px;
-            transition: all 0.25s ease;
-        }
+/* Seção Hero */
+.hero {
+    margin-bottom: 45px;
+}
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
+.badge {
+    display: inline-block;
+    background-color: var(--bg-destaque-suave);
+    color: var(--marca-azul);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 15px;
+}
 
-        .icone-materia {
-            font-size: 1.8rem;
-        }
+h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--texto-titulo);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
 
-        .tag-materia {
-            font-size: 0.75rem;
-            background: #32302f;
-            color: #a89984;
-            padding: 4px 10px;
-            border-radius: 12px;
-        }
+.subtitulo {
+    color: var(--texto-corpo);
+    font-size: 1.15rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
 
-        .card-body .titulo {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #fabd2f;
-            margin-bottom: 8px;
-            display: block;
-        }
+/* ==========================================================================
+   3. BANNER DE CITAÇÕES ROTATIVAS
+   ========================================================================== */
+.banner-citacao {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 24px;
+    padding: 35px 40px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
 
-        .card-body .descricao {
-            font-size: 0.88rem;
-            color: #a89984;
-            line-height: 1.4;
-        }
+.citacao-container {
+    flex: 1;
+    position: relative;
+}
 
-        .card-footer {
-            margin-top: 20px;
-            display: flex;
-            justify-content: flex-end;
-        }
+.aspas {
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--marca-azul);
+    font-family: Georgia, serif;
+    opacity: 0.25;
+    margin-bottom: -20px;
+}
 
-        .seta {
-            width: 36px;
-            height: 36px;
-            background-color: #3c3836;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ebdbb2;
-            transition: all 0.2s ease;
-        }
+.citacao-conteudo {
+    transition: opacity 0.6s ease-in-out;
+}
 
-        /* Efeitos ao passar o mouse */
-        .card-disciplina:hover {
-            transform: translateY(-5px);
-            background-color: #32302f;
-            border-color: #504945;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
+.frase {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--texto-titulo);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-style: italic;
+}
 
-        .card-disciplina:hover .seta {
-            background-color: #fabd2f;
-            color: #1d2021;
-        }
+.autor {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--marca-azul);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.foto-container {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid var(--marca-azul);
+    padding: 4px;
+    background-color: var(--bg-pagina);
+}
+
+.foto-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* ==========================================================================
+   4. SEÇÕES & CABEÇALHOS
+   ========================================================================== */
+.secao-cabecalho {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--borda-suave);
+    padding-bottom: 10px;
+}
+
+.secao-cabecalho h2 {
+    color: var(--texto-titulo);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.secao-cabecalho p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   5. BENTO GRID & CARDS DE DISCIPLINAS
+   ========================================================================== */
+.grid-disciplinas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.card-disciplina {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 20px;
+    padding: 28px;
+    text-decoration: none;
+    color: var(--texto-titulo);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    transition: all 0.25s ease;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.icone-materia {
+    font-size: 1.8rem;
+}
+
+.tag-materia {
+    font-size: 0.75rem;
+    background: var(--borda-suave);
+    color: var(--texto-corpo);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.card-body .titulo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--texto-titulo);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.card-body .descricao {
+    font-size: 0.88rem;
+    color: var(--texto-corpo);
+    line-height: 1.5;
+}
+
+.card-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.seta {
+    width: 36px;
+    height: 36px;
+    background-color: var(--borda-suave);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-titulo);
+    transition: all 0.2s ease;
+}
+
+.card-disciplina:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    box-shadow: 0 10px 20px var(--bg-sombra);
+}
+
+.card-disciplina:hover .seta {
+    background-color: var(--marca-azul);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   6. SEÇÃO DE LIVROS RECOMENDADOS
+   ========================================================================== */
+.secao-livros {
+    margin-bottom: 45px;
+}
+
+.livros-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card-livro {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--texto-titulo);
+    transition: all 0.25s ease;
+    align-items: center;
+}
+
+.card-livro:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px var(--bg-sombra);
+}
+
+.capa-container {
+    width: 80px;
+    height: 115px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--borda-suave);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+}
+
+.capa-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.livro-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.livro-titulo {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--texto-titulo);
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.livro-autor {
+    font-size: 0.8rem;
+    color: var(--marca-azul);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.livro-desc {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   7. SEÇÃO DE FERRAMENTAS
+   ========================================================================== */
+.secao-ferramentas {
+    margin-bottom: 50px;
+}
+
+.ferramentas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card-ferramenta {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--texto-titulo);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+}
+
+.card-ferramenta:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px var(--bg-sombra);
+}
+
+.ferramenta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.icone-ferramenta {
+    font-size: 1.5rem;
+}
+
+.tag-gratis {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--verde-tag);
+    background-color: var(--bg-pagina);
+    padding: 3px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--borda-suave);
+}
+
+.ferramenta-nome {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--texto-titulo);
+    margin-bottom: 6px;
+}
+
+.ferramenta-desc {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 600px) {
+    .banner-citacao {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 25px;
+    }
+    .aspas { display: none; }
+}
+</style>
     </style>
 </head>
 <body>
@@ -186,10 +465,232 @@
             <a href="#">Referências</a>
         </nav>
     </header>
+<!-- BANNER DE FRASES ROTATIVAS -->
+<div class="banner-citacao">
+    <div class="citacao-container">
+        <!-- Ícone de aspas decorativo -->
+        <div class="aspas">“</div>
+        
+        <!-- Conteúdo que vai mudar -->
+        <div class="citacao-conteudo" id="citacaoConteudo">
+            <p class="frase" id="fraseTexto">"O livro da natureza está escrito na linguagem matemática."</p>
+            <span class="autor" id="autorTexto">— Galileu Galilei</span>
+        </div>
+    </div>
 
+    <!-- Imagem do Matemático -->
+    <div class="foto-container">
+        <img id="autorFoto" src="https://segredosdomundo.r7.com/wp-content/uploads/2021/04/descobertar-da-galileu-galilei-contribuicoes-do-inventor-para-a-sociedade.jpeg" alt="Matemático">
+    </div>
+</div>
+<!-- SEÇÃO: LEITURAS RECOMENDADAS -->
+<section class="secao-livros">
+    <div class="secao-cabecalho">
+        <h2> Para Ler Antes do Curso</h2>
+        <p>Livros de divulgação científica e introdução ao pensamento matemático.</p>
+    </div>
+
+    <div class="livros-grade">
+
+        <!-- Livro 2 -->
+        <a href="https://annas-archive.gl/md5/cb90c35dd10e2a9127a5fd0a70d9ad26" target="_blank" class="card-livro">
+            <div class="capa-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-z9tzAVx0cd7Uyg2aSDSgAq0wyUNS6Vj-C4SK_TRlUVg3mUldGAkSF2g&s=10" alt="Convite à Matemática">
+            </div>
+            <div class="livro-info">
+                <span class="livro-titulo">Convite à Matemática</span>
+                <span class="livro-autor">Daniel Cordeiro de Moraes Filho</span>
+                <p class="livro-desc">Uma visão panorâmica sobre a cultura e o raciocínio matemático.</p>
+            </div>
+        </a>
+
+        <!-- Livro 3 -->
+        <a href="https://annas-archive.gl/md5/da7db529034a315cd34b52c21e7e752e" target="_blank" class="card-livro">
+            <div class="capa-container">
+                <img src="https://m.media-amazon.com/images/I/61itnUsqtdL._AC_UF1000,1000_QL80_.jpg" alt="How to Prove It">
+            </div>
+            <div class="livro-info">
+                <span class="livro-titulo">How to Prove It</span>
+                <span class="livro-autor">Daniel Velleman</span>
+                <p class="livro-desc">Técnicas de demonstração</p>
+            </div>
+        </a>
+    </div>
+    <!-- Bloco do Guia de Download -->
+<div class="guia-download">
+    <details>
+        <summary>💡 Como baixar os livros pelo Anna's Archive?</summary>
+        <div class="guia-conteudo">
+            <ol>
+                <li>Clique no livro desejado para ser redirecionado à página da obra.</li>
+                <li>Na seção <strong>"Option #1: Slow Partner Server"</strong> (Servidores Lentos de Parceiros), escolha qualquer um dos links (ex: <em>Option #1</em> ou <em>Option #2</em>).</li>
+                <li>Na nova janela, clique no botão <strong>"GET"</strong> ou <strong>"Download"</strong> que aparecer no topo da página.</li>
+                <li>Aguarde alguns segundos e o arquivo PDF/EPUB será baixado automaticamente.</li>
+            </ol>
+            <p class="dica-seguranca">📌 <em>Dica: Não é necessário criar conta ou pagar nada. Dê preferência aos servidores "Slow Downloads" (parceiros gratuitos).</em></p>
+        </div>
+    </details>
+</div>
+</section>
+
+<!-- SEÇÃO: BASES E PRÉ-CÁLCULO -->
+<section class="secao-livros">
+    <div class="secao-cabecalho">
+        <h2>📐 Base & Pré-Cálculo</h2>
+        <p>Materiais essenciais para dominar a álgebra elementar e funções antes da graduação.</p>
+    </div>
+
+    <div class="livros-grade">
+        <!-- Livro Pré-Cálculo 1 -->
+        <a href="#" target="_blank" class="card-livro">
+            <div class="capa-container">
+                <img src="https://m.media-amazon.com/images/I/71MaE3SbP7L._AC_UF1000,1000_QL80_.jpg" alt="Pré-Cálculo">
+            </div>
+            <div class="livro-info">
+                <span class="livro-titulo">Pré-Cálculo</span>
+                <span class="livro-autor">Sheldon Axler</span>
+                <p class="livro-desc">Abordagem rigorosa e intuitiva para o estudo de funções e trigonometria.</p>
+            </div>
+        </a>
+
+        <!-- Livro Pré-Cálculo 2 -->
+        <a href="#" target="_blank" class="card-livro">
+            <div class="capa-container">
+                <img src="https://m.media-amazon.com/images/I/71KGGRF6WTL.jpg" alt="Fundamentos de Matemática Elementar - Vol. 1">
+            </div>
+            <div class="livro-info">
+                <span class="livro-titulo">FME Vol. 1: Conjuntos e Funções</span>
+                <span class="livro-autor">Gelson Iezzi</span>
+                <p class="livro-desc">A base clássica do ensino médio para praticar manipulação algébrica profunda.</p>
+            </div>
+        </a>
+    </div>
+
+<!-- Bloco do Guia de Download -->
+<div class="guia-download">
+    <details>
+        <summary>💡 Como baixar os livros pelo Anna's Archive?</summary>
+        <div class="guia-conteudo">
+            <ol>
+                <li>Clique no livro desejado para ser redirecionado à página da obra.</li>
+                <li>Na seção <strong>"Option #1: Slow Partner Server"</strong> (Servidores Lentos de Parceiros), escolha qualquer um dos links (ex: <em>Option #1</em> ou <em>Option #2</em>).</li>
+                <li>Na nova janela, clique no botão <strong>"GET"</strong> ou <strong>"Download"</strong> que aparecer no topo da página.</li>
+                <li>Aguarde alguns segundos e o arquivo PDF/EPUB será baixado automaticamente.</li>
+            </ol>
+            <p class="dica-seguranca">📌 <em>Dica: Não é necessário criar conta ou pagar nada. Dê preferência aos servidores "Slow Downloads" (parceiros gratuitos).</em></p>
+        </div>
+    </details>
+</div>
+</section>
+<!-- SEÇÃO: FERRAMENTAS DO ESTUDANTE -->
+<section class="secao-ferramentas">
+    <div class="secao-cabecalho">
+        <h2>🛠️ Ferramentas & Softwares Recomendados</h2>
+        <p>Plataformas indispensáveis para escrita técnica, visualização de funções e computação matemática.</p>
+    </div>
+
+    <div class="ferramentas-grid">
+        <!-- Ferramenta 1: Overleaf -->
+        <a href="https://www.overleaf.com" target="_blank" class="card-ferramenta">
+            <div class="ferramenta-header">
+                <span class="icone-ferramenta">📄</span>
+                <span class="tag-gratis">Gratuito</span>
+            </div>
+            <span class="ferramenta-nome">Overleaf (LaTeX)</span>
+            <p class="ferramenta-desc">Editor online de LaTeX para redação de artigos, listas e relatórios acadêmicos.</p>
+        </a>
+
+        <!-- Ferramenta 2: GeoGebra -->
+        <a href="https://www.geogebra.org" target="_blank" class="card-ferramenta">
+            <div class="ferramenta-header">
+                <span class="icone-ferramenta">📐</span>
+                <span class="tag-gratis">Gratuito</span>
+            </div>
+            <span class="ferramenta-nome">GeoGebra</span>
+            <p class="ferramenta-desc">Exploração dinâmica de geometria, álgebra, gráficos 2D/3D e cálculo visual.</p>
+        </a>
+
+        <!-- Ferramenta 3: Desmos -->
+        <a href="https://www.desmos.com" target="_blank" class="card-ferramenta">
+            <div class="ferramenta-header">
+                <span class="icone-ferramenta">📈</span>
+                <span class="tag-gratis">Gratuito</span>
+            </div>
+            <span class="ferramenta-nome">Desmos</span>
+            <p class="ferramenta-desc">Calculadora gráfica ultrarrápida e intuitiva para esboçar funções em tempo real.</p>
+        </a>
+
+        <!-- Ferramenta 4: Wolfram Alpha -->
+        <a href="https://www.wolframalpha.com/" target="_blank" class="card-ferramenta">
+            <div class="ferramenta-header">
+                <span class="icone-ferramenta">W</span>
+                <span class="tag-gratis">Gratuito</span>
+            </div>
+            <span class="ferramenta-nome">Wolfram Alpha</span>
+            <p class="ferramenta-desc">Calcule respostas de nível especializado utilizando os algoritmos inovadores, a base de conhecimento e a tecnologia de IA da Wolfram.</p>
+        </a>
+    </div>
+</section>
+
+
+<!-- SCRIPT PARA MUDAR A CADA X SEGUNDOS -->
+<script>
+    // 1. Lista de Frases, Autores e Caminho das Fotos
+    const citacoes = [
+        {
+            frase: "O livro da natureza está escrito na linguagem matemática.",
+            autor: "Galileu Galilei",
+            foto: "https://segredosdomundo.r7.com/wp-content/uploads/2021/04/descobertar-da-galileu-galilei-contribuicoes-do-inventor-para-a-sociedade.jpeg" // Coloque o caminho da foto no seu projeto
+        },
+        {
+            frase: "A matemática, vista corretamente, possui não apenas verdade, mas suprema beleza.",
+            autor: "Bertrand Russell",
+            foto: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bertrand_Russell_photo_%28cropped%29.jpg"
+        },
+        {
+            frase: "A beleza da matemática só se mostra a seguidores mais pacientes.",
+            autor: "Maryam Mirzakhani",
+            foto: "https://s2.glbimg.com/Gvr1zcpf6mQdFlm6RsB2FArdRdM=/e.glbimg.com/og/ed/f/original/2019/08/21/25394638_340897749719741_1592292273735426648_o.jpg"
+        },
+        {
+            frase: "Em matemática, a arte de propor um problema deve ser considerada de mais valor do que a de resolvê-lo.",
+            autor: "Georg Cantor",
+            foto: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Georg_Cantor2.jpg"
+        }
+    ];
+
+    let indiceAtual = 0;
+    const tempoTroca = 6000; // Tempo em milissegundos (6000ms = 6 segundos)
+
+    function trocarCitacao() {
+        const conteudo = document.getElementById('citacaoConteudo');
+        const foto = document.getElementById('autorFoto');
+
+        // Transição suave (desaparece)
+        conteudo.style.opacity = 0;
+        foto.style.opacity = 0;
+
+        setTimeout(() => {
+            // Avança para o próximo item
+            indiceAtual = (indiceAtual + 1) % citacoes.length;
+
+            // Atualiza os textos e a imagem
+            document.getElementById('fraseTexto').textContent = `"${citacoes[indiceAtual].frase}"`;
+            document.getElementById('autorTexto').textContent = `— ${citacoes[indiceAtual].autor}`;
+            foto.src = citacoes[indiceAtual].foto;
+            foto.alt = citacoes[indiceAtual].autor;
+
+            // Transição suave (reaparece)
+            conteudo.style.opacity = 1;
+            foto.style.opacity = 1;
+        }, 600); // 600ms bate com o tempo da animação CSS
+    }
+
+    // Inicia a troca automática
+    setInterval(trocarCitacao, tempoTroca);
+</script>
     <div class="container">
         <section class="hero">
-           <span class="badge">✦ Portal de Estudos</span>
     <h1>Acervo Digital de Matemática</h1>
     <p class="subtitulo">
         Este espaço reúne notas de aula, roteiros de tópicos e referências bibliográficas organizadas para apoiar os estudos das disciplinas do curso.
@@ -197,16 +698,16 @@
 
     <!-- Destaques/Recursos em pílulas -->
      <div class="feature-item">
-            <span class="feature-icon">📝</span>
+            <span class="feature-icon"></span>
             <span>Ementas & Conteúdos</span>
         </div>
     <div class="features-grid">
         <div class="feature-item">
-            <span class="feature-icon">📚</span>
+            <span class="feature-icon"></span>
             <span>Referências & Livros</span>
         </div>
         <div class="feature-item">
-            <span class="feature-icon">💡</span>
+            <span class="feature-icon"></span>
             <span>Guia de Acesso aos materiais</span>
         </div>
     </div>
@@ -233,7 +734,7 @@
             <a href="ganalitica.html" class="card-disciplina">
                 <div>
                     <div class="card-header">
-                        <span class="icone-materia">📐</span>
+                        <span class="icone-materia">◁</span>
                     </div>
                     <div class="card-body">
                         <span class="titulo">Geometria Analítica</span>
