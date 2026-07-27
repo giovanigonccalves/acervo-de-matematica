@@ -528,6 +528,28 @@ h1 {
     flex: 1; /* Faz as 3 colunas dos períodos dividirem igualmente a pauta */
     min-width: 0; /* Impede que a coluna estoure a margem */
 }
+
+/* ==========================================================================
+   AJUSTES RESPONSIVOS PARA DISPOSITIVOS MÓVEIS (CELULARES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Faz as colunas dos períodos ficarem empilhadas verticalmente em vez de lado a lado */
+    .grade-periodos {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .coluna-periodo {
+        width: 100%; /* Ocupa a largura total da tela no celular */
+    }
+
+    /* Ajusta as seções de topo para não estourarem no celular */
+    .secao-livros, 
+    .secao-ferramentas, 
+    .secao-disciplinas {
+        padding: 0 10px; /* Margem interna para não encostar na borda da tela */
+    }
+}
     </style>
 </head>
 <body>
@@ -621,7 +643,7 @@ h1 {
 <section class="secao-livros">
     <div class="secao-cabecalho">
         <h2>Pré-Cálculo</h2>
-        <p>Não teve um bom ensino médio, ou quer revisar antes de entrar no Cálculo I? esses livros são ótimos para dominar a álgebra elementar e funções antes da graduação.</p>
+        <p>Não teve um bom ensino médio, ou quer revisar antes de entrar no Cálculo I? esses livros são ótimos para dominar a álgebra elementar e funções.</p>
     </div>
 
     <div class="livros-grade">
