@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Matemática</title>
+    <title>Acervo de Matemática</title>
     <style>
 /* ==========================================================================
    1. VARIÁVEIS DE CORES (TEMA CLARO & MODERNO)
@@ -453,7 +453,6 @@ h1 {
     }
     .aspas { display: none; }
 }
-</style>
     </style>
 </head>
 <body>
@@ -465,6 +464,18 @@ h1 {
             <a href="#">Referências</a>
         </nav>
     </header>
+
+<!-- 1. HERO (APRESENTAÇÃO / BOAS-VINDAS) -->
+    <section class="hero">
+        <span class="badge">Guia do Estudante</span>
+        <h1>Seu ponto de partida na Matemática.</h1>
+        <p class="subtitulo">
+            Bem-vindo ao Acervo Digital! Este espaço foi criado para guiar seus primeiros passos na graduação: 
+            aqui você encontra leituras recomendadas, ferramentas essenciais, bibliografia de pré-cálculo e 
+            o acervo completo de disciplinas do curso.
+        </p>
+    </section>
+
 <!-- BANNER DE FRASES ROTATIVAS -->
 <div class="banner-citacao">
     <div class="citacao-container">
@@ -487,7 +498,7 @@ h1 {
 <section class="secao-livros">
     <div class="secao-cabecalho">
         <h2> Para Ler Antes do Curso</h2>
-        <p>Livros de divulgação científica e introdução ao pensamento matemático.</p>
+        <p>Livros com contextos históricos, curiosidades sobre a matemática de nível superior e exercícios com lógica e técnicas de demonstração.</p>
     </div>
 
     <div class="livros-grade">
@@ -500,7 +511,6 @@ h1 {
             <div class="livro-info">
                 <span class="livro-titulo">Convite à Matemática</span>
                 <span class="livro-autor">Daniel Cordeiro de Moraes Filho</span>
-                <p class="livro-desc">Uma visão panorâmica sobre a cultura e o raciocínio matemático.</p>
             </div>
         </a>
 
@@ -512,7 +522,6 @@ h1 {
             <div class="livro-info">
                 <span class="livro-titulo">How to Prove It</span>
                 <span class="livro-autor">Daniel Velleman</span>
-                <p class="livro-desc">Técnicas de demonstração</p>
             </div>
         </a>
     </div>
@@ -536,13 +545,13 @@ h1 {
 <!-- SEÇÃO: BASES E PRÉ-CÁLCULO -->
 <section class="secao-livros">
     <div class="secao-cabecalho">
-        <h2>📐 Base & Pré-Cálculo</h2>
+        <h2> Base & Pré-Cálculo</h2>
         <p>Materiais essenciais para dominar a álgebra elementar e funções antes da graduação.</p>
     </div>
 
     <div class="livros-grade">
         <!-- Livro Pré-Cálculo 1 -->
-        <a href="#" target="_blank" class="card-livro">
+        <a href="https://annas-archive.gl/md5/40a223e84208ee1f94828d1746809f3c" target="_blank" class="card-livro">
             <div class="capa-container">
                 <img src="https://m.media-amazon.com/images/I/71MaE3SbP7L._AC_UF1000,1000_QL80_.jpg" alt="Pré-Cálculo">
             </div>
@@ -554,7 +563,7 @@ h1 {
         </a>
 
         <!-- Livro Pré-Cálculo 2 -->
-        <a href="#" target="_blank" class="card-livro">
+        <a href="https://annas-archive.gl/md5/81ec3ae2a5365026b71f4db1e0bf4262" target="_blank" class="card-livro">
             <div class="capa-container">
                 <img src="https://m.media-amazon.com/images/I/71KGGRF6WTL.jpg" alt="Fundamentos de Matemática Elementar - Vol. 1">
             </div>
@@ -585,7 +594,7 @@ h1 {
 <!-- SEÇÃO: FERRAMENTAS DO ESTUDANTE -->
 <section class="secao-ferramentas">
     <div class="secao-cabecalho">
-        <h2>🛠️ Ferramentas & Softwares Recomendados</h2>
+        <h2>Ferramentas</h2>
         <p>Plataformas indispensáveis para escrita técnica, visualização de funções e computação matemática.</p>
     </div>
 
@@ -610,17 +619,7 @@ h1 {
             <p class="ferramenta-desc">Exploração dinâmica de geometria, álgebra, gráficos 2D/3D e cálculo visual.</p>
         </a>
 
-        <!-- Ferramenta 3: Desmos -->
-        <a href="https://www.desmos.com" target="_blank" class="card-ferramenta">
-            <div class="ferramenta-header">
-                <span class="icone-ferramenta">📈</span>
-                <span class="tag-gratis">Gratuito</span>
-            </div>
-            <span class="ferramenta-nome">Desmos</span>
-            <p class="ferramenta-desc">Calculadora gráfica ultrarrápida e intuitiva para esboçar funções em tempo real.</p>
-        </a>
-
-        <!-- Ferramenta 4: Wolfram Alpha -->
+        <!-- Ferramenta 3: Wolfram Alpha -->
         <a href="https://www.wolframalpha.com/" target="_blank" class="card-ferramenta">
             <div class="ferramenta-header">
                 <span class="icone-ferramenta">W</span>
@@ -689,30 +688,18 @@ h1 {
     // Inicia a troca automática
     setInterval(trocarCitacao, tempoTroca);
 </script>
-    <div class="container">
-        <section class="hero">
-    <h1>Acervo Digital de Matemática</h1>
-    <p class="subtitulo">
-        Este espaço reúne notas de aula, roteiros de tópicos e referências bibliográficas organizadas para apoiar os estudos das disciplinas do curso.
-    </p>
 
-    <!-- Destaques/Recursos em pílulas -->
-     <div class="feature-item">
-            <span class="feature-icon"></span>
-            <span>Ementas & Conteúdos</span>
-        </div>
-    <div class="features-grid">
-        <div class="feature-item">
-            <span class="feature-icon"></span>
-            <span>Referências & Livros</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-icon"></span>
-            <span>Guia de Acesso aos materiais</span>
-        </div>
+
+<!-- DISCIPLINAS -->
+<section class="secao-disciplinas">
+    <div class="secao-cabecalho">
+        <h2>Disciplinas e livros</h2>
+        <p>Guia sobre o que é esperado aprender em cada curso, junto das referências bibliográficas disponíveis de graça</p>
     </div>
-        </section>
 
+
+    <div class="container">
+        
         <div class="grid-disciplinas">
             <!-- Card 1 -->
             <a href="calculo1.html" class="card-disciplina">
@@ -761,8 +748,88 @@ h1 {
                     <div class="seta">➔</div>
                 </div>
             </a>
+
+            <!-- Card 4 -->
+            <a href="algelin.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">(V,+,.)</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Álgebra Linear A</span>
+                        <p class="descricao">Espaços vetoriais</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+             <!-- Card 5 -->
+            <a href="calculo2.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">f(x,y)</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Cálculo II</span>
+                        <p class="descricao">Funções de várias variáveis</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+             <!-- Card 3 -->
+            <a href="tn.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">a≡b(mod m)</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Introdução à Teoria dos Números</span>
+                        <p class="descricao">Números inteiros</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+             <!-- Card 3 -->
+            <a href="calculo3.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">∫∫</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Cálculo III</span>
+                        <p class="descricao">Integrais duplas, triplas e integrais de linha</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
+
+             <!-- Card 3 -->
+            <a href="aneis.html" class="card-disciplina">
+                <div>
+                    <div class="card-header">
+                        <span class="icone-materia">(R,+,.)</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="titulo">Teoria dos Anéis</span>
+                        <p class="descricao">Anéis, corpos e polinômios</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="seta">➔</div>
+                </div>
+            </a>
         </div>
     </div>
-
+</section>
 </body>
 </html>

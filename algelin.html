@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo I</title>
+    <title>Álgebra Linear A</title>
     <style>
 /* ==========================================================================
    1. VARIÁVEIS DE CORES (CATPPUCCIN LATTE - LIGHT MODE)
@@ -150,87 +150,34 @@ ul {
     color: var(--marca-azul);
     text-align: center;
 }
-
-/* Seção e Grade de Playlists */
-.playlists-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 15px;
-}
-
-.card-playlist {
-    background-color: var(--bg-pagina);
-    border: 1px solid var(--borda-suave);
-    border-radius: 16px;
-    padding: 16px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 8px var(--sombra-suave);
-    transition: all 0.25s ease;
-}
-
-.card-playlist:hover {
-    background-color: var(--bg-card-hover);
-    border-color: var(--borda-hover);
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px var(--sombra-hover);
-}
-
-.playlist-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
-.icone-yt {
-    color: #e64553; /* Vermelho destacado Catppuccin */
-    font-size: 0.9rem;
-}
-
-.plataforma {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--texto-suave);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.playlist-titulo {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--texto-titulo);
-    line-height: 1.3;
-    margin-bottom: 6px;
-}
-
-.playlist-canal {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--marca-azul);
-}
 </style>
 </head>
+
+<!-- LATEX -->
+ <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <body>
 
     <div class="container">
         <!-- Volta para a página principal -->
         <a href="index.html" class="btn-voltar">← Voltar para todos os assuntos</a>
 
-        <h1>Cálculo I</h1>
+        <h1>Álgebra Linear A</h1>
 
         <div class="card-conteudo">
             <h2>Conteúdos Abordados:</h2>
             <ul>
-                <li>Limites</li>
-                <li>Continuidade</li>
-                <li>Assíntotas</li>
-                <li>Derivadas</li>
-                <li>Aplicação de derivadas, problemas de otimização</li>
-                <li>Integrais Definidas e Indefinidas</li>
+                <li>Espaço $\mathbb{R}^n$ </li>
+                <li>Matrizes e sistemas lineares</li>
+                <li>Espaços vetoriais e subespaços</li>
+                <li>Transformações lineares</li>
+                <li>Autovalores e autovetores</li>
             </ul>
         </div>
 
@@ -238,31 +185,22 @@ ul {
 <div class="livros-grid">
 
     <!-- Livro 1 -->
-    <a href="https://annas-archive.gl/md5/24a6a5f04981e143c1925474d0983191" target="_blank" class="livro-item">
-        <img src="https://image.isu.pub/130611114738-5bff8861dbf3edccc0714dfb8403330d/jpg/page_1_social_preview.jpg" alt="Cálculo Volume 1 - James Stewart">
-        <span>Cálculo 1 - James Stewart</span>
+    <a href="https://annas-archive.gl/md5/4ff9bafeddc30ef8acc06f7c0eb959d2" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/genesis/16e8d64129aabd2589eb91e40275127bb7bba355a971b2d08e29004c0df6628b.jpg" alt="Cálculo Volume 1 - James Stewart">
+        <span>Álgebra Linear - Elon</span>
     </a>
 
     <!-- Livro 2 -->
-    <a href="https://annas-archive.gl/md5/2398e32bbdf1b6f2c01a2bdebade3b4d" target="_blank" class="livro-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaCKB-ectklNp_dw_D6jLHG-R6UnwSTr3xA-PhtgGcqg&s" alt="Cálculo 1 - Guidorizzi">
-        <span>Um Curso de Cálculo vol. 1 - Guidorizzi</span>
+    <a href="https://annas-archive.gl/md5/62f53bb1e662dd205ece5b1d2290811b" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/genesis/a0f8da621d9cfd80b5e245aa74bc2e81a63959015833025f9580caa426cc9c20.jpg" alt="Cálculo 1 - Guidorizzi">
+        <span>Álgebra Linear - Boldrini</span>
     </a>
 
     <!-- Livro 3 -->
-    <a href="https://annas-archive.gl/md5/ec1e2ae0a4cdb708d8b7d6e51499c69a" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/userbooks/dee0dec5c9d23b3100266269311f6077974793b2b2e9bd576cf41b2b97f05372.jpg" alt="Cálculo com funções de uma variável - Apostol">
-        <span>Cálculo - Apostol</span>
+    <a href="https://annas-archive.gl/md5/5cdffb9347abe2bc7e0b3bb06b6cc508" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/genesis/cc4eaa13d35426975743eb4f53c2c952a9ef264dd2a69ee5285bab6c85df453d.jpg" alt="Cálculo com funções de uma variável - Apostol">
+        <span>Um curso de Álgebra Linear - Ulhoa</span>
     </a>
-
-    <a href="https://www.pedrorobertodelima.com/2022/10/calculo-i-ic241-ufrrj.html" target="_blank" class="card-playlist">
-    <div class="playlist-header">
-        <span class="icone-doc">📄</span>
-        <span class="plataforma">Notas de Aula</span>
-    </div>
-    <span class="playlist-titulo">Cálculo I</span>
-    <span class="playlist-canal">Pedro Roberto de Lima</span>
-</a>
 
 </div>
 <!-- Bloco do Guia de Download -->
@@ -279,44 +217,6 @@ ul {
             <p class="dica-seguranca">📌 <em>Dica: Não é necessário criar conta ou pagar nada. Dê preferência aos servidores "Slow Downloads" (parceiros gratuitos).</em></p>
         </div>
     </details>
-</div>
-
-<!-- SEÇÃO DE PLAYLISTS E VIDEOAULAS -->
-<div class="card-conteudo">
-    <h2> Playlists & Videoaulas Recomendadas</h2>
-    <div class="playlists-grid">
-        
-        <!-- Playlist 1 -->
-        <a href="https://www.youtube.com/watch?v=WgHUHPlJETs&list=PLAudUnJeNg4tr-aiNyYCXE46L3qEZ2Nzx" target="_blank" class="card-playlist">
-            <div class="playlist-header">
-                <span class="icone-yt">▶</span>
-                <span class="plataforma">YouTube</span>
-            </div>
-            <span class="playlist-titulo">Cálculo I</span>
-            <span class="playlist-canal">Prof. Lyambopoulos (USP)</span>
-        </a>
-
-        <!-- Playlist 2 -->
-        <a href="https://www.youtube.com/watch?v=h8pX-4NblDo&list=PLwrfdhMyXahcVHpcl5B9DwD8g9Q-FGpdq" target="_blank" class="card-playlist">
-            <div class="playlist-header">
-                <span class="icone-yt">▶</span>
-                <span class="plataforma">YouTube</span>
-            </div>
-            <span class="playlist-titulo">Cálculo I</span>
-            <span class="playlist-canal">Prof. Edivaldo Fontes (UFRRJ)</span>
-        </a>
-
-        <!-- Playlist 3 -->
-        <a href="Lhttps://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" target="_blank" class="card-playlist">
-            <div class="playlist-header">
-                <span class="icone-yt">▶</span>
-                <span class="plataforma">YouTube</span>
-            </div>
-            <span class="playlist-titulo">Essence of Calculus</span>
-            <span class="playlist-canal">3Blue1Brown</span>
-        </a>
-
-    </div>
 </div>
 
 </body>
