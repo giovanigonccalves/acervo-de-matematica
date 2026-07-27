@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álgebra Linear A</title>
+    <title>Introdução à Teoria dos Números</title>
     <style>
 /* ==========================================================================
    1. VARIÁVEIS DE CORES (CATPPUCCIN LATTE - LIGHT MODE)
@@ -150,6 +150,8 @@ ul {
     color: var(--marca-azul);
     text-align: center;
 }
+
+/* Seção e Grade de Playlists */
 .playlists-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -210,34 +212,77 @@ ul {
     font-weight: 600;
     color: var(--marca-azul);
 }
+/* "Capa" em CSS para Notas de Aula */
+.capa-nota {
+    width: 140px;
+    height: 195px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 14px var(--sombra-suave);
+    transition: all 0.25s ease;
+}
+
+/* Efeito ao passar o mouse */
+.livro-item:hover .capa-nota {
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    box-shadow: 0 8px 18px var(--sombra-hover);
+}
+
+.capa-tag {
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--marca-azul);
+    letter-spacing: 0.5px;
+    background-color: var(--bg-pagina);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.capa-icone {
+    font-size: 1.8rem;
+    margin: 4px 0;
+}
+
+.capa-titulo {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--texto-titulo);
+    line-height: 1.2;
+}
+
+.capa-autor {
+    font-size: 0.65rem;
+    color: var(--texto-suave);
+}
 </style>
 </head>
-
-<!-- LATEX -->
- <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <body>
 
     <div class="container">
         <!-- Volta para a página principal -->
         <a href="index.html" class="btn-voltar">← Voltar para todos os assuntos</a>
 
-        <h1>Álgebra Linear A</h1>
+        <h1>Introdução à Teoria dos Números</h1>
 
         <div class="card-conteudo">
             <h2>Conteúdos Abordados:</h2>
             <ul>
-                <li>Espaço $\mathbb{R}^n$ </li>
-                <li>Matrizes e sistemas lineares</li>
-                <li>Espaços vetoriais e subespaços</li>
-                <li>Transformações lineares</li>
-                <li>Autovalores e autovetores</li>
+                <li>Números inteiros</li>
+                <li>Indução</li>
+                <li>Divisibilidade, divisão de Euclides e MDC</li>
+                <li>Equações diofantinas</li>
+                <li>Congruências</li>
+                <li>Pequeno Teorema de Fermat, Teorema de Euler, Teorema Chinês do Resto</li>
+                <li>Congruências lineares</li>
             </ul>
         </div>
 
@@ -245,22 +290,20 @@ ul {
 <div class="livros-grid">
 
     <!-- Livro 1 -->
-    <a href="https://annas-archive.gl/md5/4ff9bafeddc30ef8acc06f7c0eb959d2" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/16e8d64129aabd2589eb91e40275127bb7bba355a971b2d08e29004c0df6628b.jpg" alt="Cálculo Volume 1 - James Stewart">
-        <span>Álgebra Linear - Elon</span>
+    <a href="https://annas-archive.gl/md5/7ebc561ac6205869a1c6f331f154bafd" target="_blank" class="livro-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt_KILrOd0Hyk6O4l7dwH4P8gM0IIFFeyt4mSTtR_vW5_2uwGzEpGX_EI&s=10" alt="Cálculo Volume 1 - James Stewart">
+        <span>Introdução à Teoria dos Números - José Plínio</span>
     </a>
 
-    <!-- Livro 2 -->
-    <a href="https://annas-archive.gl/md5/62f53bb1e662dd205ece5b1d2290811b" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/a0f8da621d9cfd80b5e245aa74bc2e81a63959015833025f9580caa426cc9c20.jpg" alt="Cálculo 1 - Guidorizzi">
-        <span>Álgebra Linear - Boldrini</span>
-    </a>
-
-    <!-- Livro 3 -->
-    <a href="https://annas-archive.gl/md5/5cdffb9347abe2bc7e0b3bb06b6cc508" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/cc4eaa13d35426975743eb4f53c2c952a9ef264dd2a69ee5285bab6c85df453d.jpg" alt="Cálculo com funções de uma variável - Apostol">
-        <span>Um curso de Álgebra Linear - Ulhoa</span>
-    </a>
+    <a href="https://www.pedrorobertodelima.com/2024/08/introducao-teoria-dos-numeros-ic872.html" target="_blank" class="livro-item">
+    <div class="capa-nota">
+            <span class="capa-tag">NOTAS DE AULA</span>
+            <span class="capa-icone">📄</span>
+            <span class="capa-titulo">Introdução à Teoria dos Números</span>
+            <span class="capa-autor"></span>
+        </div>
+        <span>Notas de Aula - Prof. Pedro (UFRRJ)</span>
+</a>
 
 </div>
 <!-- Bloco do Guia de Download -->
@@ -285,21 +328,17 @@ ul {
     <div class="playlists-grid">
         
         <!-- Playlist 1 -->
-        <a href="https://www.youtube.com/watch?v=w7s0a-cpj6U&list=PLwrfdhMyXahdj3nyoZ91aqDV7cC9AzezX" target="_blank" class="card-playlist">
+        <a href="https://www.youtube.com/watch?v=eBbF9iDOZTo&list=PLJXArfne8-4VGI0c20HTDzSKee6hdBw_X" target="_blank" class="card-playlist">
             <div class="playlist-header">
                 <span class="icone-yt">▶</span>
                 <span class="plataforma">YouTube</span>
             </div>
-            <span class="playlist-titulo">Álgebra Linear A</span>
-            <span class="playlist-canal">Prof. Rosane (UFRRJ)</span>
+            <span class="playlist-titulo">Introdução à Teoria dos Números</span>
+            <span class="playlist-canal">Prof. André Costa (UECE)</span>
         </a>
-
-   
-
 
     </div>
 </div>
-
 
 </body>
 </html>

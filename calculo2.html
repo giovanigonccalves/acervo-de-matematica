@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álgebra Linear A</title>
+    <title>Cálculo II</title>
     <style>
 /* ==========================================================================
    1. VARIÁVEIS DE CORES (CATPPUCCIN LATTE - LIGHT MODE)
@@ -150,6 +150,8 @@ ul {
     color: var(--marca-azul);
     text-align: center;
 }
+
+/* Seção e Grade de Playlists */
 .playlists-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -210,34 +212,76 @@ ul {
     font-weight: 600;
     color: var(--marca-azul);
 }
+/* "Capa" em CSS para Notas de Aula */
+.capa-nota {
+    width: 140px;
+    height: 195px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 14px var(--sombra-suave);
+    transition: all 0.25s ease;
+}
+
+/* Efeito ao passar o mouse */
+.livro-item:hover .capa-nota {
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    box-shadow: 0 8px 18px var(--sombra-hover);
+}
+
+.capa-tag {
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--marca-azul);
+    letter-spacing: 0.5px;
+    background-color: var(--bg-pagina);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.capa-icone {
+    font-size: 1.8rem;
+    margin: 4px 0;
+}
+
+.capa-titulo {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--texto-titulo);
+    line-height: 1.2;
+}
+
+.capa-autor {
+    font-size: 0.65rem;
+    color: var(--texto-suave);
+}
 </style>
 </head>
-
-<!-- LATEX -->
- <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <body>
 
     <div class="container">
         <!-- Volta para a página principal -->
         <a href="index.html" class="btn-voltar">← Voltar para todos os assuntos</a>
 
-        <h1>Álgebra Linear A</h1>
+        <h1>Cálculo II</h1>
 
         <div class="card-conteudo">
             <h2>Conteúdos Abordados:</h2>
             <ul>
-                <li>Espaço $\mathbb{R}^n$ </li>
-                <li>Matrizes e sistemas lineares</li>
-                <li>Espaços vetoriais e subespaços</li>
-                <li>Transformações lineares</li>
-                <li>Autovalores e autovetores</li>
+                <li>Aplicações da integral definida</li>
+                <li>Funções de várias variáveis</li>
+                <li>Limites, continuidade</li>
+                <li>Derivadas parciais</li>
+                <li>Plano tangente, aproximações lineares</li>
+                <li>Equações diferenciais ordinárias de 1ª e 2ª ordem</li>
             </ul>
         </div>
 
@@ -245,21 +289,39 @@ ul {
 <div class="livros-grid">
 
     <!-- Livro 1 -->
-    <a href="https://annas-archive.gl/md5/4ff9bafeddc30ef8acc06f7c0eb959d2" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/16e8d64129aabd2589eb91e40275127bb7bba355a971b2d08e29004c0df6628b.jpg" alt="Cálculo Volume 1 - James Stewart">
-        <span>Álgebra Linear - Elon</span>
+    <a href="https://annas-archive.gl/md5/a5438a6f3735f0566f967fc4eee06d62" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/genesis/e26d747f754a458895846d7168ba0cd0f317bb55c7bd0c522a3c237f4e680b20.jpg" alt="Cálculo Volume 1 - James Stewart">
+        <span>Cálculo 2 - James Stewart</span>
     </a>
 
     <!-- Livro 2 -->
-    <a href="https://annas-archive.gl/md5/62f53bb1e662dd205ece5b1d2290811b" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/a0f8da621d9cfd80b5e245aa74bc2e81a63959015833025f9580caa426cc9c20.jpg" alt="Cálculo 1 - Guidorizzi">
-        <span>Álgebra Linear - Boldrini</span>
+    <a href="https://annas-archive.gl/md5/4df74d59b5b0146b72edde31b076f1ca" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/userbooks/e35f73a1ceb99ee97e3b83338514f3300499262ddc46d466bad69441b8ff1a06.jpg" alt="Cálculo 1 - Guidorizzi">
+        <span>Um Curso de Cálculo vol. 2 - Guidorizzi</span>
     </a>
 
     <!-- Livro 3 -->
-    <a href="https://annas-archive.gl/md5/5cdffb9347abe2bc7e0b3bb06b6cc508" target="_blank" class="livro-item">
-        <img src="https://covers.z-lib.sk/covers400/collections/genesis/cc4eaa13d35426975743eb4f53c2c952a9ef264dd2a69ee5285bab6c85df453d.jpg" alt="Cálculo com funções de uma variável - Apostol">
-        <span>Um curso de Álgebra Linear - Ulhoa</span>
+    <a href="https://annas-archive.gl/md5/7e899f0550e7f28cfcc0ae29d3f6c77f" target="_blank" class="livro-item">
+        <img src="https://covers.z-lib.sk/covers400/collections/genesis/216ab6e1d4a602177ada8bf77ac8347c72034e7d3936297e861ee379d75ec517.jpg" alt="Cálculo com funções de uma variável - Apostol">
+        <span>ED's Elementares - Boyce e DiPrima</span>
+    </a>
+
+    <a href="https://sites.google.com/site/professordiegodasilvabarros/disciplinas/calculo-3?authuser=0" target="_blank" class="livro-item">
+    <div class="capa-nota">
+        <span class="capa-tag">NOTAS DE AULA</span>
+        <span class="capa-icone">📄</span>
+        <span class="capa-titulo">Cálculo II</span>
+    </div>
+    <span>Notas de Aula - Prof. Diego (UFRRJ)</span>
+    </a>
+
+    <a href="https://www.pedrorobertodelima.com/2023/08/calculo-ii-ic242-ufrrj.html" target="_blank" class="livro-item">
+    <div class="capa-nota">
+        <span class="capa-tag">NOTAS DE AULA</span>
+        <span class="capa-icone">📄</span>
+        <span class="capa-titulo">Cálculo II</span>
+    </div>
+    <span>Notas de Aula - Prof. Pedro (UFRRJ)</span>
     </a>
 
 </div>
@@ -285,21 +347,37 @@ ul {
     <div class="playlists-grid">
         
         <!-- Playlist 1 -->
-        <a href="https://www.youtube.com/watch?v=w7s0a-cpj6U&list=PLwrfdhMyXahdj3nyoZ91aqDV7cC9AzezX" target="_blank" class="card-playlist">
+        <a href="https://www.youtube.com/watch?v=lQdzRBRL9Tw&list=PLAudUnJeNg4sd0TEJ9EG6hr-3d3jqrddN" target="_blank" class="card-playlist">
             <div class="playlist-header">
                 <span class="icone-yt">▶</span>
                 <span class="plataforma">YouTube</span>
             </div>
-            <span class="playlist-titulo">Álgebra Linear A</span>
-            <span class="playlist-canal">Prof. Rosane (UFRRJ)</span>
+            <span class="playlist-titulo">Cálculo II</span>
+            <span class="playlist-canal">Profa. Martha (USP)</span>
         </a>
 
-   
+        <!-- Playlist 2 -->
+        <a href="https://www.youtube.com/watch?v=81G_FEVmaEs&list=PLwrfdhMyXahdgmxkB1Y2SPNirRiCDbfH7" target="_blank" class="card-playlist">
+            <div class="playlist-header">
+                <span class="icone-yt">▶</span>
+                <span class="plataforma">YouTube</span>
+            </div>
+            <span class="playlist-titulo">Cálculo II</span>
+            <span class="playlist-canal">Prof. Montauban (UFRRJ)</span>
+        </a>
 
+        <!-- Playlist 3 -->
+        <a href="Lhttps://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" target="_blank" class="card-playlist">
+            <div class="playlist-header">
+                <span class="icone-yt">▶</span>
+                <span class="plataforma">YouTube</span>
+            </div>
+            <span class="playlist-titulo">Essence of Calculus</span>
+            <span class="playlist-canal">3Blue1Brown</span>
+        </a>
 
     </div>
 </div>
-
 
 </body>
 </html>

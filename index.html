@@ -453,6 +453,81 @@ h1 {
     }
     .aspas { display: none; }
 }
+
+/* ==========================================================================
+   ESTILO DAS COLUNAS POR PERÍODO
+   ========================================================================== */
+
+/* Grade principal disposta em colunas horizontais */
+.grade-periodos {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto; /* Permite rolar para o lado em telas de celular */
+    padding-bottom: 15px;
+    align-items: flex-start;
+}
+
+/* Coluna individual de cada Período */
+.coluna-periodo {
+    flex: 1;
+    min-width: 260px; /* Impede que os cards fiquem muito espremidos */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Título de cada período (ex: 1º Período) */
+.periodo-titulo {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--marca-azul);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--marca-azul);
+    margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   ALINHAMENTO EM PAUTA ÚNICA (MESMA LARGURA PARA TODAS AS SEÇÕES)
+   ========================================================================== */
+
+/* 1. Garante que todos os títulos e conteúdos fiquem na mesma margem */
+.secao-livros, 
+.secao-ferramentas, 
+.secao-disciplinas {
+    width: 100%;
+    max-width: 1000px; /* Garante a mesma pauta máxima em todas */
+    margin: 0 auto 45px auto;
+}
+
+/* 2. Força a grade de livros a se alinhar em colunas equivalentes */
+.livros-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* 3. Força a grade de ferramentas a se alinhar perfeitamente à pauta */
+.ferramentas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* 4. Alinha os cards por período na mesma largura total */
+.grade-periodos {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.coluna-periodo {
+    flex: 1; /* Faz as 3 colunas dos períodos dividirem igualmente a pauta */
+    min-width: 0; /* Impede que a coluna estoure a margem */
+}
     </style>
 </head>
 <body>
@@ -545,8 +620,8 @@ h1 {
 <!-- SEÇÃO: BASES E PRÉ-CÁLCULO -->
 <section class="secao-livros">
     <div class="secao-cabecalho">
-        <h2> Base & Pré-Cálculo</h2>
-        <p>Materiais essenciais para dominar a álgebra elementar e funções antes da graduação.</p>
+        <h2>Pré-Cálculo</h2>
+        <p>Não teve um bom ensino médio, ou quer revisar antes de entrar no Cálculo I? esses livros são ótimos para dominar a álgebra elementar e funções antes da graduação.</p>
     </div>
 
     <div class="livros-grade">
@@ -693,143 +768,140 @@ h1 {
 <!-- DISCIPLINAS -->
 <section class="secao-disciplinas">
     <div class="secao-cabecalho">
-        <h2>Disciplinas e livros</h2>
-        <p>Guia sobre o que é esperado aprender em cada curso, junto das referências bibliográficas disponíveis de graça</p>
+        <h2>Disciplinas</h2>
+        <p>Um guia sobre o que é esperado em cada disciplina, junto de livros, notas de aula e videoaulas de professores.</p>
     </div>
 
+    <!-- Container das Colunas dos Períodos -->
+    <div class="grade-periodos">
 
-    <div class="container">
-        
-        <div class="grid-disciplinas">
-            <!-- Card 1 -->
+        <!-- COLUNA 1º PERÍODO -->
+        <div class="coluna-periodo">
+            <div class="periodo-titulo">1º Período</div>
+
             <a href="calculo1.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">∫</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Cálculo I</span>
-                        <p class="descricao">Limites, derivadas e integrais.</p>
-                    </div>
+                <div class="card-header">
+                    <span class="icone-materia">∫</span>
+                    <span class="tag-materia">90h</span>
                 </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
+                <div class="card-body">
+                    <span class="titulo">Cálculo I</span>
+                    <span class="descricao">Limites, derivadas e integrais.</span>
                 </div>
+                <div class="card-footer"><div class="seta">→</div></div>
             </a>
 
-            <!-- Card 2 -->
             <a href="ganalitica.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">◁</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Geometria Analítica</span>
-                        <p class="descricao">Vetores, retas, planos e cônicas.</p>
-                    </div>
+                <div class="card-header">
+                    <span class="icone-materia">∡</span>
+                    <span class="tag-materia">60h</span>
                 </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
+                <div class="card-body">
+                    <span class="titulo">Geometria Analítica</span>
+                    <span class="descricao">Vetores, retas, planos e cónicas.</span>
                 </div>
+                <div class="card-footer"><div class="seta">→</div></div>
             </a>
 
-            <!-- Card 3 -->
             <a href="algebra.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">∀</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Introdução à Álgebra</span>
-                        <p class="descricao">Lógica, conjuntos e relações</p>
-                    </div>
+                <div class="card-header">
+                    <span class="icone-materia">∀</span>
+                    <span class="tag-materia">60h</span>
                 </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
+                <div class="card-body">
+                    <span class="titulo">Introdução à Álgebra</span>
+                    <span class="descricao">Lógica, conjuntos e relações.</span>
                 </div>
-            </a>
-
-            <!-- Card 4 -->
-            <a href="algelin.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">(V,+,.)</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Álgebra Linear A</span>
-                        <p class="descricao">Espaços vetoriais</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
-                </div>
-            </a>
-
-             <!-- Card 5 -->
-            <a href="calculo2.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">f(x,y)</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Cálculo II</span>
-                        <p class="descricao">Funções de várias variáveis</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
-                </div>
-            </a>
-
-             <!-- Card 3 -->
-            <a href="tn.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">a≡b(mod m)</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Introdução à Teoria dos Números</span>
-                        <p class="descricao">Números inteiros</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
-                </div>
-            </a>
-
-             <!-- Card 3 -->
-            <a href="calculo3.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">∫∫</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Cálculo III</span>
-                        <p class="descricao">Integrais duplas, triplas e integrais de linha</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
-                </div>
-            </a>
-
-             <!-- Card 3 -->
-            <a href="aneis.html" class="card-disciplina">
-                <div>
-                    <div class="card-header">
-                        <span class="icone-materia">(R,+,.)</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="titulo">Teoria dos Anéis</span>
-                        <p class="descricao">Anéis, corpos e polinômios</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="seta">➔</div>
-                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
             </a>
         </div>
+
+        <!-- COLUNA 2º PERÍODO -->
+        <div class="coluna-periodo">
+            <div class="periodo-titulo">2º Período</div>
+
+            <a href="calculo2.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">∂x</span>
+                    <span class="tag-materia">90h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Cálculo II</span>
+                    <span class="descricao">Funções de várias variáveis.</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+
+            <a href="algelin.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">T[x]</span>
+                    <span class="tag-materia">60h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Álgebra Linear A</span>
+                    <span class="descricao">Espaços vetoriais</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+
+            <a href="tn.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">≡</span>
+                    <span class="tag-materia">60h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Introdução à Teoria dos Números</span>
+                    <span class="descricao">Divisibilidade, congruências e primos.</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+
+           
+        </div>
+
+        <!-- COLUNA 3º PERÍODO -->
+        <div class="coluna-periodo">
+            <div class="periodo-titulo">3º Período</div>
+
+            <a href="calculo3.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">∬</span>
+                    <span class="tag-materia">60h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Cálculo III</span>
+                    <span class="descricao">Integrais de linha</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+
+            <a href="algelinb.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">&ltu,v&gt</u></span>
+                    <span class="tag-materia">60h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Álgebra Linear B</span>
+                    <span class="descricao">Espaços complexos, matrizes ortogonais.</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+
+            <a href="aneis.html" class="card-disciplina">
+                <div class="card-header">
+                    <span class="icone-materia">(R, +, .)</u></span>
+                    <span class="tag-materia">60h</span>
+                </div>
+                <div class="card-body">
+                    <span class="titulo">Teoria dos Anéis</span>
+                    <span class="descricao">Anéis, corpos e polinômios.</span>
+                </div>
+                <div class="card-footer"><div class="seta">→</div></div>
+            </a>
+        </div>
+
     </div>
 </section>
+
 </body>
 </html>

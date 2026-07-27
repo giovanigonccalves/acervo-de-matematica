@@ -212,6 +212,57 @@ ul {
     font-weight: 600;
     color: var(--marca-azul);
 }
+/* "Capa" em CSS para Notas de Aula */
+.capa-nota {
+    width: 140px;
+    height: 195px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 14px var(--sombra-suave);
+    transition: all 0.25s ease;
+}
+
+/* Efeito ao passar o mouse */
+.livro-item:hover .capa-nota {
+    background-color: var(--bg-card-hover);
+    border-color: var(--borda-hover);
+    box-shadow: 0 8px 18px var(--sombra-hover);
+}
+
+.capa-tag {
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--marca-azul);
+    letter-spacing: 0.5px;
+    background-color: var(--bg-pagina);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.capa-icone {
+    font-size: 1.8rem;
+    margin: 4px 0;
+}
+
+.capa-titulo {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--texto-titulo);
+    line-height: 1.2;
+}
+
+.capa-autor {
+    font-size: 0.65rem;
+    color: var(--texto-suave);
+}
 </style>
 </head>
 <body>
@@ -255,13 +306,13 @@ ul {
         <span>Cálculo - Apostol</span>
     </a>
 
-    <a href="https://www.pedrorobertodelima.com/2022/10/calculo-i-ic241-ufrrj.html" target="_blank" class="card-playlist">
-    <div class="playlist-header">
-        <span class="icone-doc">📄</span>
-        <span class="plataforma">Notas de Aula</span>
+    <a href="https://www.pedrorobertodelima.com/2022/10/calculo-i-ic241-ufrrj.html" target="_blank" class="livro-item">
+    <div class="capa-nota">
+        <span class="capa-tag">NOTAS DE AULA</span>
+        <span class="capa-icone">📄</span>
+        <span class="capa-titulo">Cálculo I</span>
     </div>
-    <span class="playlist-titulo">Cálculo I</span>
-    <span class="playlist-canal">Pedro Roberto de Lima</span>
+    <span>Notas de Aula - Prof. Pedro (UFRRJ)</span>
 </a>
 
 </div>
