@@ -263,6 +263,40 @@ ul {
     font-size: 0.65rem;
     color: var(--texto-suave);
 }
+
+/* ==========================================================================
+   AJUSTE DE LIVROS E NOTAS DE AULA PARA TELAS MENORES (CELULAR)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Grade dos livros e capas de notas de aula no celular */
+    .livros-grid {
+        display: grid;
+        /* Cria colunas de no mínimo 130px; se não couber duas, fica uma centralizada */
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 16px;
+        justify-items: center; /* Centraliza cada livro em seu espaço */
+    }
+
+    /* 2. Ajuste individual do card de cada livro */
+    .livro-item {
+        width: 100%;
+        max-width: 140px; /* Impede que o livro estique demais no celular */
+    }
+
+    /* 3. Ajuste do tamanho das capas dos livros e notas */
+    .livro-item img,
+    .capa-nota {
+        width: 100%;
+        height: 185px; /* Altura proporcional para telas pequenas */
+    }
+
+    /* 4. Grade de playlists e notas de aula horizontais */
+    .playlists-grid {
+        grid-template-columns: 1fr; /* Uma playlist/nota por linha */
+        gap: 12px;
+    }
+}
 </style>
 </head>
 <body>
